@@ -16,7 +16,6 @@ Given word = "ABCCED", return true.
 Given word = "SEE", return true.
 Given word = "ABCB", return false.
 
-```
 class Solution {
     public boolean exist(char[][] board, String word) {
         if(board==null || board.length==0 || board[0].length==0) return false;
@@ -53,4 +52,3 @@ class Solution {
         return exist;
     }
 }
-```
