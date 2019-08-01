@@ -20,13 +20,17 @@ class Solution {
         int start = 0, end = 0, minStart = 0, minLen = Integer.MAX_VALUE, counter = t.length();
         char[] arr=s.toCharArray();
         while(end<arr.length){
-             if (map[arr[end++]]-- > 0) counter--;
+             if (map[arr[end]] > 0) counter--;
+             map[arr[end]]--;
+             end++;
              while(counter==0){
                  if((end-start)<minLen){
                      minLen=end-start;
                      minStart=start;
                  }
-                 if(map[arr[start++]]++==0)counter++;
+                 map[arr[start]]++;
+                 if(map[arr[start]]>0)counter++;
+                 start++;
              }
         }
         return minLen == Integer.MAX_VALUE ? "" : s.substring(minStart, minStart + minLen);
