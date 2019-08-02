@@ -42,12 +42,8 @@ class MedianFinder {
             maxQueue.offer(num);
         }
         else{
-            if(maxQueue.size()<minQueue.size()){
-                int minTop=minQueue.poll();
-                maxQueue.offer(Math.min(num,minTop));
-                minQueue.offer(Math.max(num,minTop));
-            }
-            else
+            if(maxQueue.size()<minQueue.size())
+                maxQueue.offer(minQueue.poll());
             minQueue.offer(num);
         }
     }
